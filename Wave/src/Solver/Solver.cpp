@@ -903,6 +903,8 @@ void Solver<value_t, ind_t, steps_t>::Write_param(std::string filename, bool hdf
 	free(pml_left);
 	free(pml_right);
 	free(skin);
+	free(N_l);
+	free(light_param);
 	H5Fclose(param_file);
 }
 //----------------------------------------------------------------------------------------------------------------------------------
