@@ -1,5 +1,6 @@
 ﻿#include "CMakeWave.h"
 
+
 double mu_0 = 1.25663706212e-06;
 double eps_0 = 8.8541878128e-12;
 double lightspeed = 2.998e8; // lightspeed. measured in [meter/seconds]
