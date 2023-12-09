@@ -11,6 +11,7 @@ double Amplitude(double t, double tau, double delta) {
 		return 1;
 	else if (t > tau - delta and t <= tau)
 		return (1 - (t - tau + delta) * 1 / delta);
+	else return 0;
 }
 double func_t0(double x) {
 	/*double delta_x = 30.;
@@ -28,8 +29,8 @@ double func_u_t0(double x, double t, double omega) {
 double func2_t0(double x, double y) {
 	double delta_x = (35. / 1300.) * 1e3, delta_y = (35. / 1300.) * 1e3;
 	double sigma_x = 0.5, sigma_y = 0.2;
-	return exp(-((delta_x - x) * (delta_x - x) + (delta_y - y) * (delta_y - y)) / (sigma_x * sigma_y));
-	//return 0;
+	//return exp(-((delta_x - x) * (delta_x - x) + (delta_y - y) * (delta_y - y)) / (sigma_x * sigma_y));
+	return 0;
 }
 double impulse2(double x, double y, double t, double omega, double delta_y, double radius) {
 	return exp(-((y - delta_y) * (y - delta_y)) / (radius * radius)) * sin(omega * t);
@@ -197,7 +198,7 @@ void set_get_params(const double& lamda, const double& period,
 		pml_crd.push_back(std::make_pair((10. / lamda) * 1e3, (100. / lamda) * 1e3)); //440
 		pml_crd.push_back(std::make_pair((10. / lamda) * 1e3, (60. / lamda) * 1e3));
 		//std::vector<double> layers = { 40., 60., 100., 280., 370. };
-		std::vector<double> layers = { 70. };
+		std::vector<double> layers = { 70. };  // distance to 2nd layer
 
 		for (std::size_t i = 0; i < layers.size(); i++)
 		{
@@ -229,7 +230,7 @@ int main(int argc, char* argv[]) {
 	{
 		std::cout << omp_get_thread_num() << " " <<  omp_in_parallel() << std::endl;
 	}*/
-	int threads_N = 12;
+	int threads_N = 4;  //4
 	bool solve = true;
 	bool write_file = true;
 	bool write_all_layers = false;
@@ -237,9 +238,10 @@ int main(int argc, char* argv[]) {
 	dim = Dimension::Two;
 
 	// parametrs
-	double lamda = 1300;//lambda - wavelength. measured in [nanometer]
+	double lamda = 1000;//lambda - wavelength. measured in [nanometer]
+	double delta_lamda = 0; //lambda change on sourse (+-)
 	double period = (lamda * 1e-9) / lightspeed;
-	double lamda_min = 1200, lamda_max = 1400;
+	double lamda_min = lamda - delta_lamda, lamda_max = lamda + delta_lamda;
 	double omega_min = period * 2. * M_PI * lightspeed / (lamda_max * 1e-9);
 	double omega_max = period * 2. * M_PI * lightspeed / (lamda_min * 1e-9);
 	int Nt = 5, Nx = 5, Ny = 5;

@@ -548,7 +548,7 @@ void Solver<value_t, ind_t, steps_t>::Wave2d(value_t* mtrx, value_t lamda , valu
 				{
 					for (ind_t j = l_prev_y; j < ly; j++)
 					{
-						/*// импульс с временем "испускания" tau 
+						// импульс с временем "испускания" tau 
 						if (i == _pml_ind.front().first 
 							&& j * this->_h_y + this->_lborders_y > centr_gauss - radius_gauss
 							&& j * this->_h_y + this->_lborders_y < centr_gauss + radius_gauss)
@@ -560,7 +560,7 @@ void Solver<value_t, ind_t, steps_t>::Wave2d(value_t* mtrx, value_t lamda , valu
 							value_t omega_t = omega_func(t);
 							mtrx[idx(p + 1) * width + i * _y_vector_size + j] = impulse(x, y, t, omega_t, centr_gauss, radius_gauss);
 						}
-						else {*/
+						else {
 							//pml
 							if (l_ind_x == 0 || l_ind_y == 0
 								|| l_ind_x == _layers_ind.front().size() - 1 || l_ind_y == _layers_ind[1].size() - 1)
@@ -600,7 +600,7 @@ void Solver<value_t, ind_t, steps_t>::Wave2d(value_t* mtrx, value_t lamda , valu
 									+ gamma(_a[l_ind_x - 1], _b[l_ind_x]) * mtrx[idx(p) * width + i * _y_vector_size + j]
 									+ betta(_a[l_ind_x - 1], _b[l_ind_x]) * mtrx[idx(p - 1) * width + i * _y_vector_size + j];
 							}
-						//}
+						}
 					}
 				}
 				l_prev_y = ly;

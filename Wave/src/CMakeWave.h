@@ -3,6 +3,7 @@
 
 #pragma once
 //#include <Cpython/Call_Cpython.h>
+#define _USE_MATH_DEFINES
 #include <iostream>
 #include <Solver/Solver.h>
 #include "../src/Solver/Solver.cpp"

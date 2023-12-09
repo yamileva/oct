@@ -214,7 +214,8 @@ def cpp_dielectric_params(lamda):
 	else:
 		app = QApplication.instance()
 	apply_stylesheet(app, theme='light_teal.xml', invert_secondary=True)
-	w = Dielectric_params("src/Cpython/settings.json",lamda)
+	# w = Dielectric_params("src/Cpython/settings.json",lamda)
+	w = Dielectric_params("settings.json", lamda)
 	
 	tpl = (list(np.array(list(w.permeability.values()))[:,0]), list(w.conductivity.values()))
 	print(tpl)
@@ -226,7 +227,8 @@ if __name__ == '__main__':
 	else:
 		app = QApplication.instance()
 	apply_stylesheet(app, theme='light_teal.xml', invert_secondary=True)
-	w = Dielectric_params("src/Cpython/settings.json")
+	# w = Dielectric_params("src/Cpython/settings.json")
+	w = Dielectric_params("settings.json")
 	w.resize(1280, 720)
 	w.show()
 	app.exec()

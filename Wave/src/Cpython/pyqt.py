@@ -272,15 +272,15 @@ class ApplicationWindow(QMainWindow):
 		widget = QWidget()
 		self.Glayout = QGridLayout()
 		#
-		self.img_dir = 'img/'
-		self.icon_dir = 'icon/'
-		self.gif_dir = 'gif/'
+		self.img_dir = '../../img/'
+		self.icon_dir = '../../icon/'
+		self.gif_dir = '../../gif/'
 		#time
 		self.time = 0
 		self.incr = 1
 		self.running = False
 		self.gif = True
-		self.setWindowIcon(QIcon("icon/icon.png"))
+		self.setWindowIcon(QIcon("../../icon/icon.png"))
 		self.setWindowTitle("PML")
 		#var
 		self.fname = None
@@ -547,5 +547,5 @@ def cpp_app(parametrs):
 
 ## Start Qt event loop
 if __name__ == '__main__':	
-	cpp_app((Dimension.One,"Data/temp/"))
-	#cpp_app((Dimension.Two,"Data/Save/2d_1300_5_layers_3_3.h5"))	
+	# cpp_app((Dimension.One,"../../Data/temp/"))
+	cpp_app((Dimension.Two,"../../Data/Save/hm2_28.h5"))

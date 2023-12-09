@@ -11,9 +11,9 @@
     "a" : [66.7,66.7,43.6,43.6,43.6],
     "b_mie" : [ 0.689,0.689,0.562,0.562,0.562],
     "f_ray" : [0.29,0.29,0.41,0.41,0.41],
-    "Path_HbO2":  "D:/USATU/OCT/Wave/Data/chromophorf/HbO2(2).txt",
-    "Path_Hb":  "D:/USATU/OCT/Wave/Data/chromophorf/Hb(2).txt",
-    "Path_Lipid": "D:/USATU/OCT/Wave/Data/chromophorf/Lipid(9).txt",
-    "Path_Water": "D:/USATU/OCT/Wave/Data/chromophorf/water(2).txt",
-    "Path_Water2": "D:/USATU/OCT/Wave/Data/chromophorf/water_2.txt"
+    "Path_HbO2":  "../../Data/chromophorf/HbO2(2).txt",
+    "Path_Hb":  "../../Data/chromophorf/Hb(2).txt",
+    "Path_Lipid": "../../Data/chromophorf/Lipid(9).txt",
+    "Path_Water": "../../Data/chromophorf/water(2).txt",
+    "Path_Water2": "../../Data/chromophorf/water_2.txt"
 }
